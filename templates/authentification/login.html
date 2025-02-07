@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-center pt-5">
+    <div class="card mt-5 card-login">
+        <div class="card-body">
+            <h5 class="card-title mb-4">Connexion</h5>
+            <form method="POST" action="/login">
+                <fieldset>
+                    <div class="mb-4">
+                        <label for="email" class="mb-1">Adresse mail</label>
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Saisir votre mail"
+                            required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="mb-1">Mot de passe</label>
+                        <input
+                            id="password"
+                            type="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="Saisir votre mot de passe"
+                            required>
+                    </div>
+                    <button type="submit" class="btn mb-3 text-white w-100 btn-login">
+                        Valider
+                        <i class="bi bi-check-circle"></i>
+                    </button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
