@@ -8,4 +8,4 @@ app.register_blueprint(auth_controllers)
 
 @app.route('/')
 def authentification():
-    return render_template('login.html')
+    return render_template('authentification/base.html')
