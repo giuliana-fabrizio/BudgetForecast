@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, render_template, request, session, url_for
+from flask import Blueprint, flash, redirect, render_template, request, session, url_for
 from queries.db_connexion import *
 from queries.auth_queries import *
 
@@ -19,4 +19,5 @@ def login():
         session['id'] = customer['id']
         return "TODO : redirect(url_for('customer.controllers.home'))"
 
+    flash('Email ou mot de passe incorrect, veuillez réessayer.', 'danger')
     return render_template('login.html')
