@@ -13,7 +13,11 @@
                 {% include('flash.html') %}
             </div>
 
-            {% include('authentification/login.html') %}
+            {% if action == 'signin' %}
+                {% include('authentification/login.html') %}
+            {% elif action == 'signup' %}
+                {% include('customer/form.html') %}
+            {% endif %}
         </div>
     </div>
 {% endblock %}
