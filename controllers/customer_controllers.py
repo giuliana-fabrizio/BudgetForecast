@@ -20,7 +20,7 @@ def create_an_account():
 
     email = request.form['email']
     if getUserByEmail(email):
-        flash('Erreur : le mail saisi est déjà utilisé', 'danger')
+        flash('Erreur: le mail saisi est déjà utilisé', 'danger')
         return render_template('/authentification/base.html', **args)
 
     password, password_verified = request.form['password'], request.form['password_verified']
@@ -32,5 +32,5 @@ def create_an_account():
     firstname, name = request.form['firstname'], request.form['name']
     addUser(firstname, name, email, password)
 
-    flash('Information : compte créé avec succès', 'success')
+    flash('Information: compte créé avec succès', 'success')
     return render_template('/authentification/base.html', action='signin')

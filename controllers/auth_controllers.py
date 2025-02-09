@@ -19,5 +19,5 @@ def login():
         session['id'] = customer['id']
         return "TODO : redirect(url_for('customer.controllers.home'))"
 
-    flash('Erreur : email ou mot de passe incorrect, veuillez réessayer.', 'danger')
+    flash('Erreur: email ou mot de passe incorrect, veuillez réessayer.', 'danger')
     return render_template('authentification/base.html', action='signin')
