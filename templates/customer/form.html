@@ -54,7 +54,13 @@
                             placeholder="Saisir à nouveau votre mot de passe"
                             required>
                     </div>
-                    <button type="submit" class="btn mb-3 text-white w-100 btn-login">
+                    {% if action %}
+                        <a href="/" class="text-decoration-none">
+                            <i class="bi bi-chevron-double-left"></i>
+                            Revenir en arrière
+                        </a>
+                    {% endif %}
+                    <button type="submit" class="btn mb-2 mt-3 text-white w-100 btn-login">
                         Valider
                         <i class="bi bi-check-circle"></i>
                     </button>
