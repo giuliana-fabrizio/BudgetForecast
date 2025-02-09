@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+
+{% block body %}
+    <div class="container mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Libellé</th>
+                    <th>Montant</th>
+                    <th>Créé le</th>
+                    <th>Modifié le</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for revenue in revenues %}
+                    <tr>
+                        <td>{{ revenue.name }}</td>
+                        <td>{{ revenue.amount }}</td>
+                        <td>{{ revenue.created_at }}</td>
+                        <td>{{ revenue.updated_at }}</td>
+                        <td>
+                            <a href="" class="btn btn-sm text-primary">
+                                <i class="bi bi-pencil-square"></i>
+                                Éditer
+                            </a>
+                            <a href="" class="btn btn-sm text-danger">
+                                <i class="bi bi-trash2"></i>
+                                Supprimer
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
