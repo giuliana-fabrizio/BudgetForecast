@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+{% block body %}
+    <div class="container">
+        <div class="mt-5">
+            <h4 class="title">{{ title }}</h4>
+            <div class="border-2 border-bottom pb-1 w-25"></div>
+        </div>
+        <form action="{{ action }}" method="POST" class="mt-4">
+            <fieldset>
+                <div class="mb-4">
+                    <label for="name" class="mb-1">Nom</label>
+                    <input
+                        id="name"
+                        type="text"
+                        name="name"
+                        value="{{ name }}"
+                        class="form-control"
+                        placeholder="Saisir le nom de votre revenu"
+                        required>
+                </div>
+                <div class="mb-4">
+                    <label for="forecast" class="mb-1">Forecast</label>
+                    <input
+                        id="forecast"
+                        type="number"
+                        step="0.01"
+                        min="0"
+                        name="forecast"
+                        value="{{ forecast }}"
+                        class="form-control"
+                        placeholder="Saisir le montant de votre revenu"
+                        required>
+                </div>
+                <button type="submit" class="btn mb-3 text-white w-100 btn-login">
+                    Valider
+                    <i class="bi bi-check-circle"></i>
+                </button>
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}
