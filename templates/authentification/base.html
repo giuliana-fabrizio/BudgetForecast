@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block navbar %}{% endblock %}
+
+{% block body %}
+    <div>
+        <img
+            alt="background"
+            src="../static/background.png"
+            class="img-fluid position-fixed w-100 img-login">
+
+            <div class="pt-5">
+                {% include('flash.html') %}
+            </div>
+
+            {% if action == 'signin' %}
+                {% include('authentification/login.html') %}
+            {% elif action == 'signup' %}
+                {% include('customer/form.html') %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,71 @@
+<div class="d-flex justify-content-center pt-5">
+    <div class="card mt-5 card-login">
+        <div class="card-body">
+            <h5 class="card-title mb-4">{{ title }}</h5>
+            <form method="POST" action="/create-an-account">
+                <fieldset>
+                    <div class="mb-4">
+                        <label for="firstname" class="mb-1">Prénom</label>
+                        <input
+                            id="firstname"
+                            type="text"
+                            name="firstname"
+                            class="form-control"
+                            placeholder="Saisir votre prénom"
+                            required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="name" class="mb-1">Nom</label>
+                        <input
+                            id="name"
+                            type="text"
+                            name="name"
+                            class="form-control"
+                            placeholder="Saisir votre nom"
+                            required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="mb-1">Adresse mail</label>
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Saisir votre mail"
+                            required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="mb-1">Mot de passe</label>
+                        <input
+                            id="password"
+                            type="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="Saisir votre mot de passe (10 caractères)"
+                            required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="password_verified" class="mb-1">Confirmer le mot de passe</label>
+                        <input
+                            id="password_verified"
+                            type="password"
+                            name="password_verified"
+                            class="form-control"
+                            placeholder="Saisir à nouveau votre mot de passe"
+                            required>
+                    </div>
+                    {% if action %}
+                        <a href="/" class="text-decoration-none">
+                            <i class="bi bi-chevron-double-left"></i>
+                            Revenir en arrière
+                        </a>
+                    {% endif %}
+                    <button type="submit" class="btn mb-2 mt-3 text-white w-100 btn-login">
+                        Valider
+                        <i class="bi bi-check-circle"></i>
+                    </button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
