@@ -2,12 +2,19 @@
 
 {% block body %}
     <div class="container mt-5">
+        <div class="text-end">
+            <a href="/revenue/add" class="btn btn-sm btn-success">
+                <i class="bi bi-plus-square"></i>
+                Créer
+            </a>
+        </div>
+
         <table class="table">
             <thead>
                 <tr>
                     <th>Libellé</th>
                     <th>Montant</th>
-                    <th>Créé le</th>
+                    <th class="d-none d-md-block">Créé le</th>
                     <th>Modifié le</th>
                     <th>Actions</th>
                 </tr>
