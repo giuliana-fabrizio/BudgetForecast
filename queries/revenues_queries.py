@@ -24,3 +24,8 @@ def updateRevenue(name, amount, updated_at, id):
         [name, amount, updated_at, id]
     )
     return db.commit()
+
+def deleteRevenue(id):
+    db = get_db()
+    db.execute('delete from revenue where id = ?;', [id])
+    return db.commit()

@@ -57,3 +57,15 @@ def editRevenue(id):
 
     flash('Information: revenu modifié avec succès', 'success')
     return redirect(url_for('revenue_controllers.displayRevenues'))
+
+@revenue_controllers.route('/revenue/remove/<id>', methods=['GET', 'POST'])
+def removeRevenue(id):
+    revenue = getRevenue(id)
+    if not revenue:
+        flash('Erreur: revenu inexistant', 'danger')
+        return redirect(url_for('revenue_controllers.displayRevenues'))
+
+    deleteRevenue(id)
+
+    flash('Information: revenu supprimé avec succès', 'success')
+    return redirect(url_for('revenue_controllers.displayRevenues'))
