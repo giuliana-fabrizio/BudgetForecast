@@ -39,6 +39,7 @@ def editRevenue(id):
         if not revenue:
             flash('Erreur: revenu inexistant', 'danger')
             return redirect(url_for('revenue_controllers.displayRevenues'))
+
         return render_template(
             '/revenues/form.html',
 
