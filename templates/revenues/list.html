@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="text-end">
+            <a href="/revenue/add" class="btn btn-sm btn-success">
+                <i class="bi bi-plus-square"></i>
+                Créer
+            </a>
+        </div>
+
+        {% if length > 0 %}
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Libellé</th>
+                            <th>Montant</th>
+                            <th class="d-none d-sm-table-cell">Créé le</th>
+                            <th class="d-none d-md-table-cell">Modifié le</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for revenue in revenues %}
+                            <tr>
+                                <td>{{ revenue.name }}</td>
+                                <td>{{ revenue.amount }}</td>
+                                <td class="d-none d-sm-table-cell">{{ revenue.created_at }}</td>
+                                <td class="d-none d-md-table-cell">{{ revenue.updated_at }}</td>
+                                <td>
+                                    <a href="/revenue/edit/{{ revenue.id }}" class="btn btn-sm text-primary">
+                                        <i class="bi bi-pencil-square"></i>
+                                        Éditer
+                                    </a>
+                                    <a href="/revenue/remove/{{ revenue.id }}" class="btn btn-sm text-danger">
+                                        <i class="bi bi-trash2"></i>
+                                        Supprimer
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>            
+                </table>
+            </div>
+        {% else %}
+            <p class="fw-bold mt-3 text-center">Aucun résultat</p>
+            <p class="text-center">Modifier ou supprimer certains de vos filtres</p>
+        {% endif %}
+    </div>
+{% endblock %}
