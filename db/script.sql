@@ -1,3 +1,9 @@
+DROP TABLE IF EXISTS EXPENSE;
+DROP TABLE IF EXISTS PLACE;
+DROP TABLE IF EXISTS CATEGORY;
+DROP TABLE IF EXISTS REVENUE;
+DROP TABLE IF EXISTS CUSTOMER;
+
 CREATE TABLE CUSTOMER(
     id INTEGER CONSTRAINT pk_customer PRIMARY KEY AUTOINCREMENT,
     firstname VARCHAR(15),
@@ -10,6 +16,8 @@ CREATE TABLE REVENUE(
     id INTEGER CONSTRAINT pk_revenue PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(50),
     amount DECIMAL(15,2),
+    created_at DATETIME,
+    updated_at DATETIME,
     id_customer INTEGER NOT NULL,
     CONSTRAINT fk_revenue_customer FOREIGN KEY(id_customer) REFERENCES CUSTOMER(id)
 );
@@ -18,16 +26,29 @@ CREATE TABLE CATEGORY(
     id INTEGER CONSTRAINT pk_category PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(50),
     forecast DECIMAL(15,2),
+    created_at DATETIME,
+    updated_at DATETIME,
     id_customer INTEGER NOT NULL,
     CONSTRAINT fk_category_customer FOREIGN KEY(id_customer) REFERENCES CUSTOMER(id)
 );
 
+CREATE TABLE PLACE(
+    id INTEGER CONSTRAINT pk_place PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(50),
+    id_customer INTEGER NOT NULL,
+    CONSTRAINT fk_place_customer FOREIGN KEY(id_customer) REFERENCES CUSTOMER(id)
+);
+
 CREATE TABLE EXPENSE(
     id INTEGER CONSTRAINT pk_expense PRIMARY KEY AUTOINCREMENT,
-    label TEXT,
+    name VARCHAR(50),
+    description TEXT,
     amount DECIMAL(15,2),
+    created_at DATETIME,
     id_category INTEGER NOT NULL,
+    id_place INTEGER NOT NULL,
     id_customer INTEGER NOT NULL,
     CONSTRAINT fk_expense_category FOREIGN KEY(id_category) REFERENCES CATEGORY(id),
+    CONSTRAINT fk_expense_place FOREIGN KEY(id_place) REFERENCES PLACE(id),
     CONSTRAINT fk_expense_customer FOREIGN KEY(id_customer) REFERENCES CUSTOMER(id)
 );
