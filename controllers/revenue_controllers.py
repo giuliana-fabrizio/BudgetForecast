@@ -11,7 +11,7 @@ def teardown_db(exception): close_db(exception)
 @revenue_controllers.route('/revenues')
 def displayRevenues():
     revenues = getRevenues()
-    return render_template('/revenues/list.html', revenues=revenues)
+    return render_template('/revenues/list.html', length=len(revenues), revenues=revenues)
 
 @revenue_controllers.route('/revenue/add', methods=['GET', 'POST'])
 def addRevenue():
