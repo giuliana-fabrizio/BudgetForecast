@@ -1,5 +1,4 @@
 from flask import Blueprint, flash, session, redirect, render_template, request, url_for
-from datetime import datetime
 from queries.db_connexion import *
 from queries.revenues_queries import *
 
@@ -24,10 +23,11 @@ def addRevenue():
 
     name = request.form['name']
     amount = request.form['amount']
-    created_at = datetime.now()
+    start_at = request.form['start_at']
+    stop_at = request.form['stop_at']
     id_customer = session['id']
 
-    insertRevenue(name, amount, created_at, created_at, id_customer)
+    insertRevenue(name, amount, start_at, stop_at, id_customer)
 
     flash('Information: revenu ajouté avec succès', 'success')
     return redirect(url_for('revenue_controllers.displayRevenues'))
@@ -46,14 +46,16 @@ def editRevenue(id):
             title="Modifier un revenu",
 
             name=revenue['name'],
-            amount=revenue['amount']
+            amount=revenue['amount'],
+            start_at = revenue['start_at'],
+            stop_at = revenue['stop_at']
         )
 
     name = request.form['name']
     amount = request.form['amount']
-    updated_at = datetime.now()
+    stop_at = request.form['stop_at']
 
-    updateRevenue(name, amount, updated_at, id)
+    updateRevenue(name, amount, stop_at, id)
 
     flash('Information: revenu modifié avec succès', 'success')
     return redirect(url_for('revenue_controllers.displayRevenues'))

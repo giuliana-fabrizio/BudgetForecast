@@ -16,8 +16,8 @@
                         <tr>
                             <th>Libellé</th>
                             <th>Montant</th>
-                            <th class="d-none d-sm-table-cell">Créé le</th>
-                            <th class="d-none d-md-table-cell">Modifié le</th>
+                            <th class="d-none d-sm-table-cell">Débute le</th>
+                            <th class="d-none d-md-table-cell">Se termine le</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -26,8 +26,8 @@
                             <tr>
                                 <td>{{ revenue.name }}</td>
                                 <td>{{ revenue.amount }}</td>
-                                <td class="d-none d-sm-table-cell">{{ revenue.created_at }}</td>
-                                <td class="d-none d-md-table-cell">{{ revenue.updated_at }}</td>
+                                <td class="d-none d-sm-table-cell">{{ revenue.start_at }}</td>
+                                <td class="d-none d-md-table-cell">{{ revenue.stop_at }}</td>
                                 <td>
                                     <a href="/revenue/edit/{{ revenue.id }}" class="btn btn-sm text-primary">
                                         <i class="bi bi-pencil-square"></i>

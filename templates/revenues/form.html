@@ -32,6 +32,25 @@
                         placeholder="Saisir le montant de votre revenu"
                         required>
                 </div>
+                <div class="mb-4">
+                    <label for="start_at" class="mb-1">Débute le</label>
+                    <input
+                        id="start_at"
+                        type="date"
+                        name="start_at"
+                        value="{{ start_at }}"
+                        class="form-control"
+                        required>
+                </div>
+                <div class="mb-4">
+                    <label for="stop_at" class="mb-1">Se termine le <span class="text-secondary">(optionnel)</span></label>
+                    <input
+                        id="stop_at"
+                        type="date"
+                        name="stop_at"
+                        value="{{ stop_at }}"
+                        class="form-control">
+                </div>
                 <button type="submit" class="btn mb-3 text-white w-100 btn-login">
                     Valider
                     <i class="bi bi-check-circle"></i>
