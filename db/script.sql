@@ -16,8 +16,8 @@ CREATE TABLE REVENUE(
     id INTEGER CONSTRAINT pk_revenue PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(50),
     amount DECIMAL(15,2),
-    created_at DATETIME,
-    updated_at DATETIME,
+    start_at DATETIME,
+    stop_at DATETIME,
     id_customer INTEGER NOT NULL,
     CONSTRAINT fk_revenue_customer FOREIGN KEY(id_customer) REFERENCES CUSTOMER(id)
 );
@@ -26,8 +26,8 @@ CREATE TABLE CATEGORY(
     id INTEGER CONSTRAINT pk_category PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(50),
     forecast DECIMAL(15,2),
-    created_at DATETIME,
-    updated_at DATETIME,
+    start_at DATETIME,
+    stop_at DATETIME,
     id_customer INTEGER NOT NULL,
     CONSTRAINT fk_category_customer FOREIGN KEY(id_customer) REFERENCES CUSTOMER(id)
 );
